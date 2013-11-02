@@ -5,8 +5,9 @@ author:
 build_requires:
   Test::More: 0
 configure_requires:
-  Module::Build: 0.36
-generated_by: 'Module::Build version 0.3607'
+  Module::Build: 0
+dynamic_config: 1
+generated_by: 'Module::Build version 0.4007, CPAN::Meta::Converter version 2.132830'
 license: perl
 meta-spec:
   url: http://module-build.sourceforge.net/META-spec-v1.4.html
@@ -15,7 +16,9 @@ name: App-ZofCMS-Plugin-AccessDenied
 provides:
   App::ZofCMS::Plugin::AccessDenied:
     file: lib/App/ZofCMS/Plugin/AccessDenied.pm
-    version: 0.0101
+    version: 0.0102
+requires:
+  perl: 5.006
 resources:
   license: http://dev.perl.org/licenses/
-version: 0.0101
+version: 0.0102

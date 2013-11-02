@@ -3,9 +3,9 @@ package App::ZofCMS::Plugin::AccessDenied;
 use warnings;
 use strict;
 
-our $VERSION = '0.0101';
+our $VERSION = '0.0102';
 
-sub new { bless {}, shift }
+sub new { return bless {}, shift }
 
 sub process {
     my ( $self, $t, $q, $config ) = @_;
@@ -59,7 +59,7 @@ sub process {
 sub prepare_user_roles {
     my ( $conf, $user_role_raw ) = @_;
     my %roles;
-    
+
     if ( ref $user_role_raw eq 'ARRAY' ) {
         %roles = map +( $_ => 1 ), @$user_role_raw;
     }
@@ -77,6 +77,8 @@ sub prepare_user_roles {
 
 1;
 __END__
+
+=encoding utf8
 
 =head1 NAME
 
@@ -159,11 +161,11 @@ follows:
     ...
 
 B<Optional>. Takes a subref as a value. This argument tells the plugin
-the access roles the current user (visitor) posseses and based on these, 
+the access roles the current user (visitor) possesses and based on these, 
 the access to the page will be either granted or denied. The C<@_> will
 contain C<$t>, C<$q>, and C<$config> (in that order), where C<$t> is ZofCMS
-Template hashref, C<$q> is query parameter hashref, and C<$config> isf
-L<App::ZofCMS::Config> object. B<Defaults to:>
+Template hashref, C<$q> is query parameter hashref, and C<$config> is
+the L<App::ZofCMS::Config> object. B<Defaults to:>
 C<< sub { $_[0]->{d}{user}{role} } >> (i.e. attain the value from the
 C<< $t->{d}{user}{role} >>). The subref must return one of the following:
 

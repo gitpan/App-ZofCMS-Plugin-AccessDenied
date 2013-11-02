@@ -14,7 +14,9 @@ my $builder = Module::Build->new(
         'App::ZofCMS::Test::Plugin' => '0.0104',
     },
     requires => {
+        perl => '5.006',
     },
+    configure_requires => { 'Module::Build' => 0 },
     add_to_cleanup      => [ 'App-ZofCMS-Plugin-AccessDenied-*' ],
     create_makefile_pl => 'traditional',
 );
